@@ -1,0 +1,214 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="Style1.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />   
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form5" runat="server">
+
+       <div class="main">
+    <div class="head">
+        <div class="logo123"><div class="aoanh"></div></div>
+       
+    </div>
+        <div class="head-link">
+        
+            <div class="timkiem">
+                <asp:TextBox ID="TextBox3" runat="server" CssClass="otimkiem" OnTextChanged="TextBox3_TextChanged"></asp:TextBox><asp:Button ID="Button2" runat="server" Text="Tìm kiếm" CssClass="nuttk" OnClick="Button2_Click"/>
+            </div>
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" 
+                        DataSourceID="SiteMapDataSource1" StaticDisplayLevels="2" 
+                    StaticEnableDefaultPopOutImage="False" StaticSubMenuIndent="16px" ForeColor="Black" CssClass="menu">
+                        
+                        <DynamicHoverStyle />
+                        
+                        <DynamicMenuStyle BackColor="white"  BorderStyle="Solid" Font-Size="13pt" ForeColor="Black" />
+                        <StaticHoverStyle BackColor="#FF99FF"  />
+                        <StaticMenuStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                        <StaticSelectedStyle BackColor="#0000CC" />
+                        
+                    </asp:Menu>
+            
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                    </div>
+            </div>
+           <div class="site">
+                        
+               <asp:SiteMapPath ID="SiteMapPath1" runat="server" Height="30px" PathSeparator="/" style="margin-left: 21px; margin-top: 15px" >
+                   <NodeStyle Font-Bold="True" Font-Names="sans-serif" Font-Size="13pt" ForeColor="White" Height="25px" />
+               </asp:SiteMapPath>
+           </div>
+           <div >
+            <div id="demo" class="carousel slide" data-ride="carousel" style="width:100%;height:450px;z-index: 0;">
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active" style="border:yellow  2px solid"></li>
+    <li data-target="#demo" data-slide-to="1" style="border:yellow  2px solid"></li>
+    <li data-target="#demo" data-slide-to="2" style="border:yellow  2px solid"></li>
+  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="display:flexbox">
+      <img src="001.jpg" alt="Los Angeles" width="2000" height="430" />
+ 
+    </div>
+    <div class="carousel-item" style="display:flexbox">
+      <img src="002.jpg" alt="Chicago" width="2000" height="430" />
+    </div>
+    <div class="carousel-item" style="display:flexbox">
+      <img src="003.jpg" alt="New York" width="2000" height="430" />
+      <div class="carousel-caption">
+       <%-- <h3>New York</h3>
+        <p>We love the Big Apple!</p>
+      </div>  --%>
+   </div>
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev" >
+    <span class="carousel-control-prev-icon"style="background-color:blue;border:2px yellow solid;border-radius: 24px;"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon" style="background-color:blue;border:2px yellow  solid;border-radius: 24px;"></span>
+  </a>
+</div>
+           </div>
+        </div>
+        <div class="left"></div>
+        <div class="content">
+         <div>
+        
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                  
+        </asp:ContentPlaceHolder>
+    </div>
+            
+        </div>
+        <%--<div class="dong">--%>
+        <div class="right">
+            <div class="khung">
+            
+                <asp:MultiView ID="MultiView1" runat="server">
+                    <asp:View ID="View1" runat="server">
+                        <div class="imgdangky1" >Đăng Nhập
+    <asp:Image ID="Image1" runat="server" ImageUrl="~/hoatiet_tieude.jpg" />
+                        Tên đăng nhập: <asp:TextBox ID="txttk" runat="server"></asp:TextBox>
+                Mật khẩu: <asp:TextBox ID="txtmk" runat="server" TextMode="Password"></asp:TextBox>
+                <div class="nut">
+               <asp:Button ID="btndki" runat="server" Text="Đăng kí mới" OnClick="btndki_Click" Width="113px" CssClass="nut1"/>
+                   <asp:Button ID="Button1" runat="server" Text="Đăng nhập" CssClass="nut1" OnClick="Button1_Click"/>
+                    <br />
+                    <br />
+                    <asp:CheckBox ID="CheckBox1"  runat="server" Text="Đăng nhập với tư cách ADMIN" />
+                    <br />
+                    <asp:Label ID="lbkq" runat="server" Text=""></asp:Label>
+                </div>
+                            </div>
+                    </asp:View>
+                    <asp:View ID="View2" runat="server">
+                        <div class="kemm">
+                        <asp:Image ID="Image3" runat="server"  ImageUrl="~/cart/9fc4837d4996f7240009a203902546c9.jpg" Height="60px" Width="40px" /><asp:Label ID="Label1" runat="server" Text="Chào mừng, bạn  " Font-Size="16pt" Font-Names="Quick sand"></asp:Label> <asp:Label ID="lbtendn" runat="server" Text="" Font-Size="18pt" ForeColor="Pink" Font-Bold="True"></asp:Label>
+                            <a href="WebAdmin.aspx"><asp:Label ID="lbadmin" runat="server" Text="Label"></asp:Label></a>
+                            <asp:Button ID="Button3" runat="server" Text="Đăng xuất" OnClick="Button3_Click"  />
+                    </div>
+                            </asp:View>
+                </asp:MultiView>
+               
+
+</div>
+            
+            <div class="dong">
+            <div class="khung" style="margin-top:10px;">
+               <div class="imgdangky1">Danh mục
+    <asp:Image ID="Image2" runat="server" ImageUrl="~/hoatiet_tieude.jpg" />
+                   
+               </div> 
+        </div>
+                <p class="gachchan">
+                    <img src="icon-lhd.png" />
+                    <a  href="#" class="thea">LAN HỒ ĐIỆP</a></p>
+                   <p class="gachchan"><img src="icon-lhd.png" />
+                       <a href="#" class="thea">HOA KHAI TRƯƠNG</a></p>
+                   <p class="gachchan"><img src="icon-lhd.png" />
+                       <a href="#" class="thea"> CHERRY</a></p>
+                <p class="gachchan"><img src="icon-lhd.png" />
+                    <a href="#" class="thea"> DÂU TÂY</a></p>
+                   <p class="gachchan"><img src="icon-lhd.png" />
+                       <a href="#" class="thea"> HOA BABY</a></p>
+                <p class="gachchan"><img src="icon-lhd.png" />
+                    <a href="loaihoa_hongdo.aspx" class="thea"> HOA HỒNG ĐỎ</a></p>
+                <p class="gachchan"><img src="icon-lhd.png" />
+                    <a href="loaihoa_huongduong.aspx" class="thea">HOA HƯỚNG DƯƠNG</a></p>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+        <div class="footer">
+            <div class="dongfooter">
+            <div class="cotfooter" style="margin-left:200px;">
+                <h4>
+                    <span style="color:#bd2026">
+                        <strong>VY FLOWER VÀ ĐỐI TÁC</strong>
+                    </span>
+                </h4>
+                <p>
+                <span style="color:#d83131">Quận 1</span>:1372 Lê Thánh Tôn,P.Bến Thành </p>
+                <p>
+                <span style="color:#d83131">Quận 2</span>:16 Nguyễn Duy Trinh,P.Bình Trưng Tây</p>
+                <p>
+                <span style="color:#d83131">Quận 3</span>:313 Nguyễn Thiện Thuật,P.1 </p>
+                <p>
+                <span style="color:#d83131">Quận 5</span>:268 Nguyễn Trãi,P.8 </p>
+                <p>
+                <span style="color:#d83131">Quận 10</span>:70 Hồ Thị Kỷ,P.1 </p>
+                <p>
+                <span style="color:#d83131">Quận 12</span>:479/3 Tân Thới Hiệp,P.Tân Thới Hiệp</p>
+            </div>
+            <div class="cotfooter">
+                <h4>
+                 <span style="color:#bd2026">
+                        <strong>VY FLOWER VÀ ĐỐI TÁC</strong>
+                    </span>
+                </h4>
+                <p>
+                <span style="color:#d83131">Q.Gò Vấp</span>:248/12 Lê Thánh Tôn,P.Bến Thành </p>
+                <p>
+                <span style="color:#d83131">Q.Bình Thạnh</span>:16 Nguyễn Duy Trinh,P.Bình Trưng Tây</p>
+                <p>
+                <span style="color:#d83131">Q.Bình Tân</span>:313 Nguyễn Thiện Thuật,P.1 </p>
+                <p>
+                <span style="color:#d83131">Q.Tân Bình</span>:268 Nguyễn Trãi,P.8 </p>
+                <p>
+                <span style="color:#d83131">Q.Phú Nhuận</span>:70 Hồ Thị Kỷ,P.1</p>
+            </div>
+            
+            <div class="cotfooter">
+            <h4>
+                 <span style="color:#bd2026">
+                        <strong>CHỦ SHOP THỰC HIỆN:</strong>
+                    </span>
+                </h4>
+            <p>Nhóm 6</p>
+            <p>Họ và tên: Nguyễn Đức Thanh Vy</p>
+            <p>MSSV: 2001180431</p>
+            </div>
+                </div>
+            <div class="dongfooter" style="background-color:#777">
+                <p>Copyright 2020 © <strong>vyflower.com</strong></p>
+            </div>
+            
+        </div>
+    
+            
+    </form>
+</body>
+</html>
